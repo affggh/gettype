@@ -5,7 +5,9 @@ LDFLAGS = -static
 
 .PHONY: all
 
-all: libfmt.a
+all: gettype
+
+gettype: libfmt.a
 	$(CPP) gettype.cpp -o gettype $^ $(LDFLAGS)
 	$(STRIP) gettype
 

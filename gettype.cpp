@@ -9,6 +9,7 @@
 #include <unistd.h>
 
 #define author "affggh"
+#define VERSION "1.2"
 #define BUFREADSIZE 4096
 
 using namespace std;
@@ -140,6 +141,7 @@ void Usage(char *self) {
 	cout << "    -i input file" << endl;
 	cout << "        This is to detect file type..." << endl;
 	cout << "    Written by " << author << endl;
+	cout << "    Version : " << VERSION << endl;
 }
 
 int CompareMagic(char *buffer, int bufoff, const char *buf, int size) {
