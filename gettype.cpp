@@ -17,6 +17,7 @@ bool ArgFlag = 0;
 
 void Usage(char *self);
 int CompareMagic(char *buffer, int bufoff,const char *buf, int size);
+char *getfmt(char *infile);
 
 int main (int argc, char *argv[]) {
 	
@@ -114,7 +115,7 @@ int main (int argc, char *argv[]) {
 		if(CompareMagic(&buf[4], 0, "\x67\x44\x6c\x61", 4)==0) {
 			Type = "super";
 		} else {
-			Type = "Unknow";
+			Type = getfmt(fileName);
 		}
 	}
 	char* ext;
