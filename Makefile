@@ -1,6 +1,7 @@
 CPP = g++
 AR = ar
 STRIP = strip
+CFLAGS = -O2 -std=c++17
 LDFLAGS = -static
 
 .PHONY: all
@@ -8,15 +9,20 @@ LDFLAGS = -static
 all: gettype
 
 gettype: libfmt.a
-	$(CPP) gettype.cpp -o gettype $^ $(LDFLAGS)
-	$(STRIP) gettype
+	@echo "    GEN   gettype"
+	@$(CPP) gettype.cpp -o gettype $^ $(LDFLAGS)
+	@echo "    STRIP gettype"
+	@$(STRIP) gettype
 
 libfmt.a:
-	$(CPP) -c format.cpp
-	$(CPP) -c getfmt.cpp
-	$(AR) rcs libfmt.a format.o getfmt.o
+	@echo "    CPP   format.o"
+	@$(CPP) $(CFLAGS) -c format.cpp
+	@echo "    CPP   getfmt.o"
+	@$(CPP) $(CFLAGS) -c getfmt.cpp
+	@echo "    AR    libfmt.a"
+	@$(AR) rcs libfmt.a format.o getfmt.o
 
 clean:
-	rm gettype
-	rm *.o
-	rm *.a
+	@rm *.o
+	@rm *.a
+	@rm gettype
