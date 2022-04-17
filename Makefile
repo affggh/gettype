@@ -2,7 +2,7 @@ CPP = g++
 AR = ar
 STRIP = strip
 CFLAGS = -O2 -std=c++17
-LDFLAGS = -static
+LDFLAGS =
 
 .PHONY: all
 
@@ -10,7 +10,7 @@ all: gettype
 
 gettype: libfmt.a
 	@echo "    GEN   gettype"
-	@$(CPP) gettype.cpp -o gettype $^ $(LDFLAGS)
+	@$(CPP) $(CFLAGS) gettype.cpp -o gettype $^ $(LDFLAGS)
 	@echo "    STRIP gettype"
 	@$(STRIP) gettype
 
