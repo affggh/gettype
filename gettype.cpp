@@ -100,6 +100,8 @@ int main (int argc, char *argv[]) {
 		Type = "Linux executable binary file";
 	} else if(CompareMagic(buffer, 0, "ANDROID!", 8)==0) {
 		Type = "boot";
+	} else if(CompareMagic(buffer, 0, "VNDRBOOT!", 8)==0) {
+		Type = "vendor_boot";
 	} else {
 		// 补充那个合并的super解析
 		ifstream file(fileName, ios::in|ios::binary);
